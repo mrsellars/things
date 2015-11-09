@@ -1,0 +1,163 @@
+<html ng-app="things">
+  <head>
+    <title>ToDo App</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
+  </head>
+
+  <body>
+    <br>
+    <div class="container">
+      <div class="row">
+        <form class="form-group" name="addTodo" ng-controller="ThingsController as thingsCtrl"
+              ng-submit="addTodo.$valid && thingsCtrl.addToDo()" novalidate>
+          <div class="col-lg-12">
+            <div class="input-group my-input-group">
+              <input ng-model="thingsCtrl.todo.details" type="text" class="form-control input-lg my-form-control" placeholder="Your ToDo"
+                      autofocus required>
+
+              <span class="input-group-btn">
+                <button class="btn btn-default btn-lg" type="submit" value="Submit">
+                  <span class="glyphicon glyphicon-plus" style="line-height: 1.3333333;"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="row" ng-controller="ThingsController as thingsCtrl">
+        <div class="col-lg-12">
+          <ul class="list-group">
+            <li class="list-group-item clearfix" ng-repeat="todo in thingsCtrl.todos | orderBy:'-generated_at'" ng-hide="todo.finished">
+              <span>{{todo.details}}</span>
+              <span class="pull-right" ng-show="!todo.finished">
+                <button class="btn btn-default btn-lg my-btn-lg" ng-controller="ThingsController as thingsCtrl" ng-click="thingsCtrl.removeToDo(todo)">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </body>
+
+  <style>
+    body {
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #e9573f;
+    }
+
+    .my-input-group {
+      color: rgba(20,28,34,0.1);
+      border-radius: 5px;
+      box-shadow: 0 0 0px 5px;
+    }
+
+    .btn-default {
+      background-color: #e9573f;
+      color: #fff;
+      border: 0;
+      border-color: #fff;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .btn-default:focus {
+      background-color: #e9573f;
+      color: rgba(20,28,34,0.1);
+    }
+
+    .btn-default:hover {
+      background-color: #e9573f;
+      color: rgba(20,28,34,0.1);
+    }
+
+    .btn-default:active {
+      background-color: #e9573f;
+      color: rgba(20,28,34,0.1);
+    }
+
+    .form-control {
+      background-color: #e9573f;
+      color: #fff;
+      border: 0;
+    }
+
+    .form-control::-moz-placeholder {
+      color: rgba(20,28,34,0.1);
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .form-control:-ms-input-placeholder {
+      color: rgba(20,28,34,0.1);
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: rgba(20,28,34,0.1);
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .my-form-control {
+      border-right: 6px solid rgba(20,28,34,0.1);
+      box-shadow: none !important;
+      outline: 0 none !important;
+      border-color: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+
+    .my-form-control:focus {
+      border-color: rgba(20,28,34,0.1);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .list-group-item {
+      background-color: #e9573f;
+      color: #fff;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 3px dashed rgba(20,28,34,0.1);
+      padding-right: 3px;
+      margin-bottom: 1px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .list-group-item .my-btn-lg {
+      background-color: #e9573f;
+      color: #fff;
+      border: 0;
+      padding: 0;
+      padding-right: 14px;
+    }
+
+    .list-group-item:last-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: 0;
+    }
+
+    .list-group-item .btn-default:focus {
+      background-color: #e9573f;
+      color: rgba(20,28,34,0.1);
+    }
+
+    .list-group-item .btn-default:hover {
+      background-color: #e9573f;
+      color: rgba(20,28,34,0.1);
+    }
+  </style>
+</html>
