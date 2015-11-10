@@ -1,0 +1,22 @@
+{
+  "name": "things",
+  "version": "0.0.1",
+  "authors": [
+    "Tim Keller <tim@tim-keller.info>"
+  ],
+  "main": "README.md",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.7",
+    "ngstorage": "~0.3.9"
+  }
+}
