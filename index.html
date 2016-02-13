@@ -13,7 +13,7 @@
       <div class="row">
         <form class="form-group" name="addTodo" ng-controller="ThingsController as thingsCtrl"
               ng-submit="addTodo.$valid && thingsCtrl.addToDo()" novalidate>
-          <div class="col-lg-12">
+          <div class="col-xs-12 col-lg-12">
             <div class="input-group my-input-group">
               <input ng-model="thingsCtrl.todo.details" type="text" class="form-control input-lg my-form-control" placeholder="Your ToDo"
                       autofocus required>
@@ -33,7 +33,7 @@
 
     <div class="container">
       <div class="row" ng-controller="ThingsController as thingsCtrl">
-        <div class="col-lg-12">
+        <div class="col-xs-12 col-lg-12">
           <ul class="list-group">
             <li class="list-group-item clearfix" ng-repeat="todo in thingsCtrl.todos | orderBy:'-generated_at'" ng-hide="todo.finished">
               <span>{{todo.details}}</span>
@@ -162,6 +162,6 @@
 
     ul li:last-child {
       border:none;
-    } 
+    }
   </style>
 </html>
