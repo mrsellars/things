@@ -9,7 +9,7 @@
 
   <body>
     <br>
-    <div class="container">
+    <div class="content container-fluid">
       <div class="row">
         <form class="form-group" name="addTodo" ng-controller="ThingsController as thingsCtrl"
               ng-submit="addTodo.$valid && thingsCtrl.addToDo()" novalidate>
@@ -27,11 +27,9 @@
           </div>
         </form>
       </div>
-    </div>
 
-    <br>
+      <br>
 
-    <div class="container">
       <div class="row" ng-controller="ThingsController as thingsCtrl">
         <div class="col-lg-12">
           <ul class="list-group">
